@@ -44,3 +44,7 @@ Generated manifest: GENERATED_METADATA.json
 License: MPL-2.0
 
 This repository is generated. File issues and feature requests on https://github.com/jack-michaud/software-factory rather than editing this generated repository directly.
+
+## Remote Sprite Development
+
+This distribution includes the `remote-sprite-development` skill. Install/update the same public distribution for both production and matching meta profiles (for example `softwarefactorybuilder` and `metasoftwarefactorybuilder`) so remote Sprite task routing, checkpoint, evidence, rollback, and review contracts are loadable without private local profile state.
