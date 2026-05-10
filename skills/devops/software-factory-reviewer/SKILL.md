@@ -25,4 +25,4 @@ When PM requires disposable/test-profile validation, gate the source and handoff
 - Cleanup/pruning is represented as a gated follow-up after rollout/docs evidence is preserved, unless explicit human retention is recorded.
 - The chain limits repeated remediation to at most two iterations before orchestrator/human escalation.
 
-Precedent checks: t_7c6d97af established that disposable install evidence should include root `distribution.yaml` verification and may need the venv Hermes executable if a local wrapper is broken; t_623387b6 established preserving a non-secret disposable-validation artifact; t_f823dfba established canonical profile deletion after evidence is preserved.
+Precedent checks: disposable install evidence should include root distribution metadata such as `distribution.yaml` verification when relevant and may use an approved fallback executable if the expected local Hermes wrapper is broken; evidence should name the fallback without leaking private state; approved non-secret disposable-validation artifacts should be preserved before cleanup; cleanup should use canonical profile deletion after rollout/docs evidence is preserved.
