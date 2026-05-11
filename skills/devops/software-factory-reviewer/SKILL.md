@@ -1,7 +1,7 @@
 ---
 name: software-factory-reviewer
 description: Reviewer role boundaries for Software Factory.
-version: 0.1.1
+version: 0.1.2
 ---
 # Software Factory Reviewer
 
@@ -26,3 +26,10 @@ When PM requires disposable/test-profile validation, gate the source and handoff
 - The chain limits repeated remediation to at most two iterations before orchestrator/human escalation.
 
 Precedent checks: disposable install evidence should include root distribution metadata such as `distribution.yaml` verification when relevant and may use an approved fallback executable if the expected local Hermes wrapper is broken; evidence should name the fallback without leaking private state; approved non-secret disposable-validation artifacts should be preserved before cleanup; cleanup should use canonical profile deletion after rollout/docs evidence is preserved.
+
+
+## Source-update review locality
+
+For source-update reviews, verify against the PM Source Map and builder handoff. Inspect the named standard worktree/path, such as `/home/sprite/worktrees/<repo-name>/<task-id>-<short-slug>`, or the public remote coordinates named in the handoff. Do not use private installed profile state, secrets, logs, memories, raw Kanban databases/workspaces, or runtime profile directories as source truth.
+
+Require evidence for repo URL, local repo/worktree path, branch, commit hash, changed files, diff or diff-stat, validation output, target-profile coverage, publish/push status, and whether superproject submodule pointers or generated profile repos changed. If commits are not pushed, require either an approved source-controlled patch/diff bundle or a PM-named reviewer-accessible standard local worktree path. Block with the exact missing public coordinate or unblock condition when source authority, path access, branch/worktree authority, or validation evidence is ambiguous.
